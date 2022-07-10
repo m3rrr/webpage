@@ -2,13 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: website-deploy
+  name: website-new
   labels:
-    app: website-app
+    app: website-new
 spec:
   selector:
     matchLabels:
-      app: website-app
+      app: website-new
   replicas: 2
   strategy:
     type: RollingUpdate
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: website-app
+        app: website-new
     spec:
       affinity:
         podAntiAffinity:
@@ -28,7 +28,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - kube-master
+                - K8S_Server_Node
             topologyKey: "kubernetes.io/hostname"
       containers:
       - name: website-new
