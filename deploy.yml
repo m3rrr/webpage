@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: ravikiranmn
-        image: ravikiranmn/website-new
+        image: ravikiranmn/website-develop
         ports:
         - containerPort: 80
